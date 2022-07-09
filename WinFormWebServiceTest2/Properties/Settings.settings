@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WinFormWebServiceTest2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WinFormWebServiceTest2_liveenginev2_wsShip" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://mailobjects.net/liveenginev2/ship/wsship.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

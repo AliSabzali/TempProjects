@@ -1,0 +1,1286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="~/LiveEngine/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="~/LiveEngine/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="~/LiveEngine/">
+      <s:element name="RequestCMOperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mReq" type="tns:CertifiedMailLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertifiedMailLoad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CMLoadItems" type="tns:ArrayOfCMLoadItem" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoadType" type="tns:CMLoadType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMLoadItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMLoadItem" nillable="true" type="tns:CMLoadItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMLoadItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientArticleID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShippingID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShipTypeID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TemplateID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackingNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerRefNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAdrs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailerDocName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToFirm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToZip5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToZip4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToPostalCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WeightInOunces" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PostageAmt" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CertifiedFee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RtnReceiptAmt" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestrictedAmt" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="hRefLink" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReleaseInd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="WaiverOfSigInd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdrsServReqInd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestrictedInd" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BarCodeImage" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="UploadDocument" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="FileTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageLocalPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageOriginalSize" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageSubject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageComments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageKeywords" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoPages" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImgXMLDataSource" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duplex" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoERRInd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MailTodayInd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetEnvInd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetEnvTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToFirm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToZip5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetEnvToZip4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IMbTypeID" type="tns:IMbRequestType" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMbImage" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMbNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="IMbRequestType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NO_IMB" />
+          <s:enumeration value="IMB_WITHOUT_RECIPIENT_ADDRESS" />
+          <s:enumeration value="IMB_WITH_RECIPIENT_ADDRESS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CMLoadType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotSet" />
+          <s:enumeration value="Create" />
+          <s:enumeration value="Search" />
+          <s:enumeration value="Validate" />
+          <s:enumeration value="Queue" />
+          <s:enumeration value="Release" />
+          <s:enumeration value="BarCode" />
+          <s:enumeration value="Tracking" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="RequestCMOperationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestCMOperationResult" type="tns:CertifiedMailLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostalImprint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoPages" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="envelopeType" type="tns:EnvelopeType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnvelopeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="SIZE_10" />
+          <s:enumeration value="SIZE_6X9" />
+          <s:enumeration value="SIZE_9X12" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetPostalImprintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostalImprintResult" type="tns:PostalImprint" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PostalImprint">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:base64Binary" />
+              <s:element minOccurs="1" maxOccurs="1" name="WeightInOunces" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PostageAmt" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CertifiedFee" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalPostageAmt" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="RtnReceiptAmt" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="RestrictedDAmt" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LoadBase" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VoidPostalImprint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VoidPostalImprintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VoidPostalImprintResult" type="tns:ResetPostalImprint" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResetPostalImprint">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="VoidArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNos" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VoidArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VoidArticleResult" type="tns:ArrayOfVoidPostal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVoidPostal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VoidPostal" nillable="true" type="tns:VoidPostal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VoidPostal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SelectBySiteID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectBySiteIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectBySiteIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookAutoType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookAutoTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookAutoTypeResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookFirstClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookFirstClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookFirstClassResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookPriority">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookPriorityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookPriorityResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBook3665">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBook3665Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBook3665Result" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookFirstClass3665">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookFirstClass3665Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookFirstClass3665Result" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookPriority3665">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookPriority3665Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookPriority3665Result" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookAutoType3665">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookAutoType3665Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookAutoType3665Result" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReceiptResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerRefNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MailerDocName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectClientID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectClientIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectClientIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookDataResult" type="tns:FirmBookLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FirmBookLoad">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="HeaderItems" type="tns:ArrayOfHeaderLoadItem" />
+              <s:element minOccurs="0" maxOccurs="1" name="DetailItems" type="tns:ArrayOfDetailLoadItem" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfHeaderLoadItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HeaderLoadItem" nillable="true" type="tns:HeaderLoadItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HeaderLoadItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MailersName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DtPrepared" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActualMailDt" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailersAdrs" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManifestID" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntryPoint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalPermit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetailLoadItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetailLoadItem" nillable="true" type="tns:DetailLoadItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetailLoadItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ArticleNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToNameAdrs" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WeightInPounds" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PostageAmt" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CertifiedFee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RtnReceiptAmt" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestrictedDAmt" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmt" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerRefNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirmBookPageNo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackingNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirmBook3665PageNo" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFirmBookData3665">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmBookData3665Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmBookData3665Result" type="tns:FirmBookLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSignedFirmBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSignedFirmBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSignedFirmBookResult" type="tns:SignedFirmBookLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SignedFirmBookLoad">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SignedFirmBook" type="s:base64Binary" />
+              <s:element minOccurs="1" maxOccurs="1" name="ShipTypeID" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertSignedFirmBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SignedFirmBook" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSignedFirmBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertSignedFirmBookResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertifiedFees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailDt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertifiedFeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertifiedFeesResult" type="tns:CertifiedFeesLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertifiedFeesLoad">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MailDt" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CertifiedFee" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="RtnReceiptAmt" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="RestrictedDAmt" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetPostageFee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipCompanyID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShipTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EnvelopeTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="WeightInOunces" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromSiteID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailDt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostageFeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostageFeeResult" type="tns:PostageFeeLoad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PostageFeeLoad">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LoadBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PostageAmt" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetLabel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShippingID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabelResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseMails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseMailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReleaseMailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RequestCMOperationSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestCMOperation" />
+  </wsdl:message>
+  <wsdl:message name="RequestCMOperationSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestCMOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostalImprintSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostalImprint" />
+  </wsdl:message>
+  <wsdl:message name="GetPostalImprintSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostalImprintResponse" />
+  </wsdl:message>
+  <wsdl:message name="VoidPostalImprintSoapIn">
+    <wsdl:part name="parameters" element="tns:VoidPostalImprint" />
+  </wsdl:message>
+  <wsdl:message name="VoidPostalImprintSoapOut">
+    <wsdl:part name="parameters" element="tns:VoidPostalImprintResponse" />
+  </wsdl:message>
+  <wsdl:message name="VoidArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:VoidArticle" />
+  </wsdl:message>
+  <wsdl:message name="VoidArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:VoidArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectBySiteIDSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectBySiteID" />
+  </wsdl:message>
+  <wsdl:message name="SelectBySiteIDSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectBySiteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookAutoTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookAutoType" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookAutoTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookAutoTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBook" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookFirstClassSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookFirstClass" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookFirstClassSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookFirstClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookPrioritySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookPriority" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookPrioritySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBook3665SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBook3665" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBook3665SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBook3665Response" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookFirstClass3665SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookFirstClass3665" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookFirstClass3665SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookFirstClass3665Response" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookPriority3665SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookPriority3665" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookPriority3665SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookPriority3665Response" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookAutoType3665SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookAutoType3665" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookAutoType3665SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookAutoType3665Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReceipt" />
+  </wsdl:message>
+  <wsdl:message name="GetReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectClientIDSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectClientID" />
+  </wsdl:message>
+  <wsdl:message name="SelectClientIDSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookData" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookData3665SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmBookData3665" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmBookData3665SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmBookData3665Response" />
+  </wsdl:message>
+  <wsdl:message name="GetSignedFirmBookSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSignedFirmBook" />
+  </wsdl:message>
+  <wsdl:message name="GetSignedFirmBookSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSignedFirmBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSignedFirmBookSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSignedFirmBook" />
+  </wsdl:message>
+  <wsdl:message name="InsertSignedFirmBookSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSignedFirmBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertifiedFeesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertifiedFees" />
+  </wsdl:message>
+  <wsdl:message name="GetCertifiedFeesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertifiedFeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostageFeeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostageFee" />
+  </wsdl:message>
+  <wsdl:message name="GetPostageFeeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostageFeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLabelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabel" />
+  </wsdl:message>
+  <wsdl:message name="GetLabelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseMailsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseMails" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseMailsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseMailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsShipSoap">
+    <wsdl:operation name="RequestCMOperation">
+      <wsdl:input message="tns:RequestCMOperationSoapIn" />
+      <wsdl:output message="tns:RequestCMOperationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostalImprint">
+      <wsdl:input message="tns:GetPostalImprintSoapIn" />
+      <wsdl:output message="tns:GetPostalImprintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VoidPostalImprint">
+      <wsdl:input message="tns:VoidPostalImprintSoapIn" />
+      <wsdl:output message="tns:VoidPostalImprintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VoidArticle">
+      <wsdl:input message="tns:VoidArticleSoapIn" />
+      <wsdl:output message="tns:VoidArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectBySiteID">
+      <wsdl:input message="tns:SelectBySiteIDSoapIn" />
+      <wsdl:output message="tns:SelectBySiteIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookAutoType">
+      <wsdl:input message="tns:GetFirmBookAutoTypeSoapIn" />
+      <wsdl:output message="tns:GetFirmBookAutoTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBook">
+      <wsdl:input message="tns:GetFirmBookSoapIn" />
+      <wsdl:output message="tns:GetFirmBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookFirstClass">
+      <wsdl:input message="tns:GetFirmBookFirstClassSoapIn" />
+      <wsdl:output message="tns:GetFirmBookFirstClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookPriority">
+      <wsdl:input message="tns:GetFirmBookPrioritySoapIn" />
+      <wsdl:output message="tns:GetFirmBookPrioritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBook3665">
+      <wsdl:input message="tns:GetFirmBook3665SoapIn" />
+      <wsdl:output message="tns:GetFirmBook3665SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookFirstClass3665">
+      <wsdl:input message="tns:GetFirmBookFirstClass3665SoapIn" />
+      <wsdl:output message="tns:GetFirmBookFirstClass3665SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookPriority3665">
+      <wsdl:input message="tns:GetFirmBookPriority3665SoapIn" />
+      <wsdl:output message="tns:GetFirmBookPriority3665SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookAutoType3665">
+      <wsdl:input message="tns:GetFirmBookAutoType3665SoapIn" />
+      <wsdl:output message="tns:GetFirmBookAutoType3665SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceipt">
+      <wsdl:input message="tns:GetReceiptSoapIn" />
+      <wsdl:output message="tns:GetReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectClientID">
+      <wsdl:input message="tns:SelectClientIDSoapIn" />
+      <wsdl:output message="tns:SelectClientIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookData">
+      <wsdl:input message="tns:GetFirmBookDataSoapIn" />
+      <wsdl:output message="tns:GetFirmBookDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookData3665">
+      <wsdl:input message="tns:GetFirmBookData3665SoapIn" />
+      <wsdl:output message="tns:GetFirmBookData3665SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignedFirmBook">
+      <wsdl:input message="tns:GetSignedFirmBookSoapIn" />
+      <wsdl:output message="tns:GetSignedFirmBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSignedFirmBook">
+      <wsdl:input message="tns:InsertSignedFirmBookSoapIn" />
+      <wsdl:output message="tns:InsertSignedFirmBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertifiedFees">
+      <wsdl:input message="tns:GetCertifiedFeesSoapIn" />
+      <wsdl:output message="tns:GetCertifiedFeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostageFee">
+      <wsdl:input message="tns:GetPostageFeeSoapIn" />
+      <wsdl:output message="tns:GetPostageFeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabel">
+      <wsdl:input message="tns:GetLabelSoapIn" />
+      <wsdl:output message="tns:GetLabelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseMails">
+      <wsdl:input message="tns:ReleaseMailsSoapIn" />
+      <wsdl:output message="tns:ReleaseMailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsShipSoap" type="tns:wsShipSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RequestCMOperation">
+      <soap:operation soapAction="~/LiveEngine/RequestCMOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostalImprint">
+      <soap:operation soapAction="~/LiveEngine/GetPostalImprint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoidPostalImprint">
+      <soap:operation soapAction="~/LiveEngine/VoidPostalImprint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoidArticle">
+      <soap:operation soapAction="~/LiveEngine/VoidArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectBySiteID">
+      <soap:operation soapAction="~/LiveEngine/SelectBySiteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookAutoType">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookAutoType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBook">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookFirstClass">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookFirstClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookPriority">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBook3665">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBook3665" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookFirstClass3665">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookFirstClass3665" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookPriority3665">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookPriority3665" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookAutoType3665">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookAutoType3665" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceipt">
+      <soap:operation soapAction="~/LiveEngine/GetReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="~/LiveEngine/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectClientID">
+      <soap:operation soapAction="~/LiveEngine/SelectClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookData">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookData3665">
+      <soap:operation soapAction="~/LiveEngine/GetFirmBookData3665" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignedFirmBook">
+      <soap:operation soapAction="~/LiveEngine/GetSignedFirmBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSignedFirmBook">
+      <soap:operation soapAction="~/LiveEngine/InsertSignedFirmBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertifiedFees">
+      <soap:operation soapAction="~/LiveEngine/GetCertifiedFees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostageFee">
+      <soap:operation soapAction="~/LiveEngine/GetPostageFee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabel">
+      <soap:operation soapAction="~/LiveEngine/GetLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseMails">
+      <soap:operation soapAction="~/LiveEngine/ReleaseMails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsShipSoap12" type="tns:wsShipSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RequestCMOperation">
+      <soap12:operation soapAction="~/LiveEngine/RequestCMOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostalImprint">
+      <soap12:operation soapAction="~/LiveEngine/GetPostalImprint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoidPostalImprint">
+      <soap12:operation soapAction="~/LiveEngine/VoidPostalImprint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoidArticle">
+      <soap12:operation soapAction="~/LiveEngine/VoidArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectBySiteID">
+      <soap12:operation soapAction="~/LiveEngine/SelectBySiteID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookAutoType">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookAutoType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBook">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookFirstClass">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookFirstClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookPriority">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookPriority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBook3665">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBook3665" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookFirstClass3665">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookFirstClass3665" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookPriority3665">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookPriority3665" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookAutoType3665">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookAutoType3665" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceipt">
+      <soap12:operation soapAction="~/LiveEngine/GetReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="~/LiveEngine/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectClientID">
+      <soap12:operation soapAction="~/LiveEngine/SelectClientID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookData">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmBookData3665">
+      <soap12:operation soapAction="~/LiveEngine/GetFirmBookData3665" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignedFirmBook">
+      <soap12:operation soapAction="~/LiveEngine/GetSignedFirmBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSignedFirmBook">
+      <soap12:operation soapAction="~/LiveEngine/InsertSignedFirmBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertifiedFees">
+      <soap12:operation soapAction="~/LiveEngine/GetCertifiedFees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostageFee">
+      <soap12:operation soapAction="~/LiveEngine/GetPostageFee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabel">
+      <soap12:operation soapAction="~/LiveEngine/GetLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseMails">
+      <soap12:operation soapAction="~/LiveEngine/ReleaseMails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsShip">
+    <wsdl:port name="wsShipSoap" binding="tns:wsShipSoap">
+      <soap:address location="https://mailobjects.net/liveenginev2/ship/wsship.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsShipSoap12" binding="tns:wsShipSoap12">
+      <soap12:address location="https://mailobjects.net/liveenginev2/ship/wsship.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
